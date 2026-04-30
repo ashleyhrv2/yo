@@ -1,0 +1,13 @@
+public static int gapToNextPrime(int num)
+{
+    int next = num; // start at the number they gave
+
+    // keep going until we find a prime
+    while(isPrime(next) == false)
+    {
+        next = next + 1; // go up by 1
+    }
+
+    // how far away the prime is
+    return next - num;
+}
