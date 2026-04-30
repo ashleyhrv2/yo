@@ -1,0 +1,18 @@
+private static boolean isPrime(int n)
+{
+    if(n < 2)
+    {
+        return false;
+    }
+
+    // check if any number divides it
+    for(int i = 2; i < n; i++)
+    {
+        if(n % i == 0)
+        {
+            return false; // not prime
+        }
+    }
+
+    return true; // prime
+}
