@@ -1,0 +1,35 @@
+public class CaesarCipher {
+
+    public static String encode(String message, int shiftAmount) {
+        String finalMessage = "";
+        for (int index = 0; index < message.length(); index++) {
+            String currentCharacter = message.substring(index, index + 1);
+            int currentNumber = letterToNum(currentCharacter);
+            int shiftedNumber = currentNumber + shiftAmount;
+            shiftedNumber = shiftedNumber % 26;
+            String shiftedCharacter = numToLetter(shiftedNumber);
+            finalMessage = finalMessage + shiftedCharacter;
+        }
+        return finalMessage;
+    }
+
+    public static String allEncodings(String message) {
+        String allResults = "";
+        for (int shiftValue = 0; shiftValue <= 25; shiftValue++) {
+            allResults = allResults + encode(message, shiftValue);
+            if (shiftValue < 25)
+                allResults = allResults + "\n";
+        }
+        return allResults;
+    }
+
+    private static int letterToNum(String letterInput) {
+        int alphabetPosition = letterInput.charAt(0) - 'A';
+        return alphabetPosition;
+    }
+
+    private static String numToLetter(int numberInput) {
+        char alphabetCharacter = (char)('A' + numberInput);
+        return "" + alphabetCharacter;
+    }
+}
